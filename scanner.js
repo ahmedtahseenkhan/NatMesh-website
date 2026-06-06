@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   CLAREON · TERMINAL & SCANNER ANIMATIONS
+   NETMESH · TERMINAL & SCANNER ANIMATIONS
 ═══════════════════════════════════════════════════════════════ */
 
 /* ─── Sample configs + findings ─────────────────────────────── */
@@ -123,7 +123,7 @@ const CONFIGS = {
   if (!body) return;
 
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    body.innerHTML = '<div class="term-line sys">› clareon-csc engine ready · 202 rules loaded</div>';
+    body.innerHTML = '<div class="term-line sys">› netmesh-csc engine ready · 202 rules loaded</div>';
     return;
   }
 
@@ -131,7 +131,7 @@ const CONFIGS = {
     {
       file: 'edge-fw-01.cfg',
       boot: [
-        ['› clareon-csc v1.4.2 · initializing', 'sys', 250],
+        ['› netmesh-csc v1.4.2 · initializing', 'sys', 250],
         ['› loading rule packs … 16/16 [OK]', 'sys-dim', 320],
         ['› parsers ready · 28 vendors registered', 'sys-dim', 280],
         ['› ingesting edge-fw-01.cfg · 1,247 lines · sha=0xa3f4', 'sys', 320],

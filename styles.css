@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   CLAREON · DEFENSE-GRADE WEBSITE
+   NETMESH · DEFENSE-GRADE WEBSITE
    palette: black + amber; type: IBM Plex Mono/Sans; vibe: NSA tooling
 ═══════════════════════════════════════════════════════════════ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -194,7 +194,7 @@ h1, h2, h3, h4, h5 { font-family: var(--f-display); font-weight: 600; letter-spa
   width: 30px; height: 30px;
   border: 1px solid var(--amber);
   display: flex; align-items: center; justify-content: center;
-  color: var(--amber); font-weight: 700; font-size: 14px;
+  color: var(--amber); font-weight: 700; font-size: 12px; letter-spacing: 0.04em;
   position: relative;
   box-shadow: 0 0 0 1px var(--bg-0), 0 0 16px var(--amber-glow);
 }
@@ -969,7 +969,7 @@ h1, h2, h3, h4, h5 { font-family: var(--f-display); font-weight: 600; letter-spa
 .hash-row.tamper .hash { color: var(--crit); text-decoration: line-through; }
 
 /* ═══════════════════════════════════════════════════════════════
-   CLAREON vs NIPPER — REDACTED COMPARISON
+   NETMESH vs NIPPER — REDACTED COMPARISON
 ═══════════════════════════════════════════════════════════════ */
 .vs-section { background: var(--bg-1); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .vs-headerline {
