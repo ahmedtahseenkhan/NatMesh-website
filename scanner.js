@@ -1,6 +1,9 @@
 /* ═══════════════════════════════════════════════════════════════
-   NETMESH · TERMINAL & SCANNER ANIMATIONS
+   NatMesh · TERMINAL & SCANNER ANIMATIONS
 ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Translator (provided by i18n.js; safe fallback) ───────── */
+const t = (typeof window !== 'undefined' && window.t) ? window.t : (s => s);
 
 /* ─── Sample configs + findings ─────────────────────────────── */
 const CONFIGS = {
@@ -123,15 +126,19 @@ const CONFIGS = {
   if (!body) return;
 
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    body.innerHTML = '<div class="term-line sys">› netmesh-csc engine ready · 202 rules loaded</div>';
+    const renderReady = () => { body.innerHTML = '<div class="term-line sys">' + t('engine_ready') + '</div>'; };
+    renderReady();
+    document.addEventListener('nm:langchange', renderReady);
     return;
   }
+
+  let heroToken = 0;
 
   const SCRIPTS = [
     {
       file: 'edge-fw-01.cfg',
       boot: [
-        ['› netmesh-csc v1.4.2 · initializing', 'sys', 250],
+        ['› natmesh-csc v1.4.2 · initializing', 'sys', 250],
         ['› loading rule packs … 16/16 [OK]', 'sys-dim', 320],
         ['› parsers ready · 28 vendors registered', 'sys-dim', 280],
         ['› ingesting edge-fw-01.cfg · 1,247 lines · sha=0xa3f4', 'sys', 320],
@@ -173,10 +180,11 @@ const CONFIGS = {
   async function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
   async function runOnce() {
+    const my = ++heroToken;
     body.innerHTML = '';
     foundCount = 0; progress = 0;
     found.textContent = '0';
-    stat.textContent = 'BOOT';
+    stat.textContent = t('BOOT');
     stat.style.color = 'var(--amber)';
     prog.style.width = '0%';
 
@@ -187,19 +195,21 @@ const CONFIGS = {
     const tick = () => { step++; prog.style.width = Math.min(100, (step / totalSteps) * 100) + '%'; };
 
     // boot lines
-    stat.textContent = 'INITIALIZING';
+    stat.textContent = t('INITIALIZING');
     for (const [txt, cls, dur] of script.boot) {
-      addLine(txt, cls);
+      addLine(t(txt), cls);
       tick();
       await sleep(dur);
+      if (my !== heroToken) return;
     }
     addLine('', '');
 
-    stat.textContent = 'SCANNING';
+    stat.textContent = t('SCANNING');
     stat.style.color = 'var(--amber)';
 
     // config lines
     for (const ln of script.lines) {
+      if (my !== heroToken) return;
       // ['k','keyword','v','value',(sev,rule,msg,refs)?]
       let html = `<span class="c">${ln[1] || ''}</span>`;
       if (ln[0]) {
@@ -221,7 +231,7 @@ const CONFIGS = {
         const refs = ln[7] || [];
         await sleep(220);
         addLine(
-          `   ↳ ${tagFor(sev)} <span style="color:var(--amber)">${ref}</span> · <span style="color:var(--txt)">${msg}</span> <span style="color:var(--txt-3)">· ${refs.join(' · ')}</span>`,
+          `   ↳ ${tagFor(sev)} <span style="color:var(--amber)">${ref}</span> · <span style="color:var(--txt)">${t(msg)}</span> <span style="color:var(--txt-3)">· ${refs.join(' · ')}</span>`,
           'sys-dim'
         );
       }
@@ -230,24 +240,29 @@ const CONFIGS = {
     }
 
     // final summary
-    stat.textContent = 'COMPLETE';
+    stat.textContent = t('COMPLETE');
     stat.style.color = 'var(--ok)';
     addLine('', '');
-    addLine(`<span class="sys">› audit complete · ${foundCount} findings · 4 critical · 2 high · 1 medium</span>`, 'sys');
+    addLine(`<span class="sys">${t('audit_complete').replace('{n}', foundCount)}</span>`, 'sys');
     tick();
     await sleep(400);
-    addLine(`<span class="sys-dim">› risk score 87/100 · CVSS max 9.8 · STIG-CAT-I exposures present</span>`, 'sys-dim');
+    if (my !== heroToken) return;
+    addLine(`<span class="sys-dim">${t('risk_summary')}</span>`, 'sys-dim');
     tick();
     await sleep(400);
-    addLine(`<span class="sys">› report exported · clr-2026-05-18-edge-fw-01.pdf · sarif=12</span>`, 'sys');
+    if (my !== heroToken) return;
+    addLine(`<span class="sys">${t('report_exported')}</span>`, 'sys');
     tick();
     prog.style.width = '100%';
     await sleep(2400);
+    if (my !== heroToken) return;
 
     // restart
     runOnce();
   }
   runOnce();
+  // Re-render immediately in the new language on toggle.
+  document.addEventListener('nm:langchange', () => runOnce());
 })();
 
 
@@ -317,7 +332,7 @@ const CONFIGS = {
         <span class="ref">${ref}</span>
         <span class="line">L${lineNum}</span>
       </div>
-      <div class="finding-title">${msg}</div>
+      <div class="finding-title">${t(msg)}</div>
       <div class="finding-meta">
         ${(refs || []).map((r, i) => `<span class="finding-chip ${r.startsWith('CVE')?'cve':'cmp'}">${r}</span>`).join('')}
       </div>
@@ -339,7 +354,7 @@ const CONFIGS = {
 
     const c = CONFIGS[key];
     let findings = 0, crits = 0;
-    countEl.textContent = '0 findings';
+    countEl.textContent = t('findings_n').replace('{n}', 0);
     findEl.textContent = '0';
     critEl.textContent = '0';
 
@@ -357,7 +372,7 @@ const CONFIGS = {
         if (ln[4] === 'crit') crits++;
         findingCard(ln, ln[4], ln[5], ln[6], ln[7], i+1);
       });
-      countEl.textContent = `${findings} findings`;
+      countEl.textContent = t('findings_n').replace('{n}', findings);
       findEl.textContent = findings;
       critEl.textContent = crits;
       fill.style.width = '100%';
@@ -394,7 +409,7 @@ const CONFIGS = {
         findingCard(ln, sev, ln[5], ln[6], ln[7], i+1);
         findings++;
         if (sev === 'crit') crits++;
-        countEl.textContent = `${findings} findings`;
+        countEl.textContent = t('findings_n').replace('{n}', findings);
         findEl.textContent = findings;
         critEl.textContent = crits;
         await sleep(300);
@@ -424,4 +439,7 @@ const CONFIGS = {
 
   // Boot
   run('edge-fw-01.cfg');
+
+  // Re-run the active config in the new language on toggle.
+  document.addEventListener('nm:langchange', () => run(currentKey));
 })();

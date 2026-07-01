@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   NETMESH · DEFENSE-GRADE WEBSITE
+   NatMesh · DEFENSE-GRADE WEBSITE
    palette: black + amber; type: IBM Plex Mono/Sans; vibe: NSA tooling
 ═══════════════════════════════════════════════════════════════ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -94,6 +94,8 @@ section { padding: 96px 0; position: relative; z-index: 2; }
 
 /* ─── Type primitives ───────────────────────────────────────── */
 .mono { font-family: var(--f-mono); }
+/* Keep the brand wordmark proper-cased even inside uppercase contexts */
+.brandcase { text-transform: none; }
 .eyebrow {
   display: inline-flex; align-items: center; gap: 10px;
   font-family: var(--f-mono);
@@ -242,6 +244,31 @@ h1, h2, h3, h4, h5 { font-family: var(--f-display); font-weight: 600; letter-spa
 .nav-links a.cta::before { top: -3px; left: -3px; border-right: none; border-bottom: none; }
 .nav-links a.cta::after { bottom: -3px; right: -3px; border-left: none; border-top: none; }
 .nav-links a.cta:hover { background: var(--amber); color: #000; }
+
+/* ─── Language toggle ──────────────────────────────────────── */
+.lang-toggle {
+  display: inline-flex; align-items: center; gap: 5px;
+  margin-left: 10px; padding: 7px 11px;
+  font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.08em;
+  color: var(--txt-3);
+  border: 1px solid var(--line);
+  background: transparent;
+  cursor: pointer;
+  transition: border-color .15s, color .15s;
+}
+.lang-toggle:hover { border-color: var(--line-amber); }
+.lang-toggle .lang-opt {
+  color: var(--txt-3);
+  transition: color .15s;
+}
+.lang-toggle .lang-opt:hover { color: var(--amber); }
+.lang-toggle .lang-opt.active { color: var(--amber); font-weight: 600; }
+.lang-toggle .lang-sep { color: var(--txt-4); }
+.lang-toggle.drawer {
+  display: flex; justify-content: center; width: 100%;
+  margin: 12px 0 0; padding: 12px;
+  font-size: 13px; letter-spacing: 0.14em;
+}
 
 /* Burger */
 .burger { display: none; padding: 8px; color: var(--txt-2); }
@@ -970,7 +997,7 @@ h1, h2, h3, h4, h5 { font-family: var(--f-display); font-weight: 600; letter-spa
 .hash-row.tamper .hash { color: var(--crit); text-decoration: line-through; }
 
 /* ═══════════════════════════════════════════════════════════════
-   NETMESH vs NIPPER — REDACTED COMPARISON
+   NatMesh vs NIPPER — REDACTED COMPARISON
 ═══════════════════════════════════════════════════════════════ */
 .vs-section { background: var(--bg-1); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .vs-headerline {
