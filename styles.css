@@ -997,7 +997,7 @@ h1, h2, h3, h4, h5 { font-family: var(--f-display); font-weight: 600; letter-spa
 .hash-row.tamper .hash { color: var(--crit); text-decoration: line-through; }
 
 /* ═══════════════════════════════════════════════════════════════
-   NatMesh vs NIPPER — REDACTED COMPARISON
+   NatMesh vs ONLINE SOLUTIONS — REDACTED COMPARISON
 ═══════════════════════════════════════════════════════════════ */
 .vs-section { background: var(--bg-1); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .vs-headerline {

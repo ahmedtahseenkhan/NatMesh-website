@@ -21,7 +21,7 @@ const I18N_DOM = {
     'brand.tag': 'YAPILANDIRMA · GÜVENLİK · DENETİM',
     'nav.scanner': 'Tarayıcı',
     'nav.compliance': 'Uyumluluk',
-    'nav.vs': 'Nipper ile',
+    'nav.vs': 'Karşılaştırma',
     'nav.integrity': 'Bütünlük',
     'nav.pricing': 'Fiyatlandırma',
     'nav.cta': 'Lisans İste',
@@ -98,9 +98,10 @@ const I18N_DOM = {
     /* §05 comparison */
     's5.ey': '§ 05 · KARŞILAŞTIRMA',
     's5.ey2': 'GİZLİLİĞİ KALDIRILDI · DAĞITIM İÇİN',
-    's5.h': 'Nipper Omnisight<br><span style="color:var(--amber)"><span class="brandcase">NatMesh</span>\'e karşı.</span>',
-    's5.lede': 'Nipper bu kategoriyi bir on yıl boyunca tek başına elinde tuttu. Motor 2018\'den bu yana anlamlı bir ilerleme kaydetmedi. İşte aynı özellik listesi, yan yana. Siyah çubuklar, mevcut oyuncunun söyleyecek hiçbir şeyinin olmadığı yerler.',
+    's5.h': 'Diğer çevrimiçi çözümler<br><span style="color:var(--amber)"><span class="brandcase">NatMesh</span>\'e karşı.</span>',
+    's5.lede': 'Çoğu çevrimiçi yapılandırma denetleyicisi yıllardır anlamlı bir ilerleme kaydetmedi. İşte aynı özellik listesi, yan yana. Siyah çubuklar, tipik bir çevrimiçi çözümün söyleyecek hiçbir şeyinin olmadığı yerler.',
     's5.rows': '13 SATIR',
+    's5.them': 'ÇEVRİMİÇİ ÇÖZÜMLER',
     's5.cap': 'YETENEK',
     's5.r1': 'Üretici ayrıştırıcıları<span class="sub">cisco · juniper · forti · palo · …</span>',
     's5.r2': 'Güvenlik kuralları<span class="sub">denetlenen desenler</span>',
@@ -128,7 +129,7 @@ const I18N_DOM = {
     's5.r14t': 'Cihaz başına abonelik',
     's5.r14v': 'Tek seferlik, makine başına',
     's5.stamp': 'GİZLİLİĞİ KALDIRILDI<span>18·05·2026</span>',
-    's5.sum': 'Her modern yetenekte — <strong>Zero Trust puanlaması, rol-ağırlıklı risk, çevrimdışı CVE eşleştirme, SARIF/CI-CD çıktısı, sapma tespiti ve kurcalamaya karşı dayanıklı denetim izi</strong> — Nipper\'ın sütuna koyacak bir şeyi yok. Mevcut oyuncuya saygımız var. Biz sadece bu kategorinin önümüzdeki on yılını yayına aldık.',
+    's5.sum': 'Her modern yetenekte — <strong>Zero Trust puanlaması, rol-ağırlıklı risk, çevrimdışı CVE eşleştirme, SARIF/CI-CD çıktısı, sapma tespiti ve kurcalamaya karşı dayanıklı denetim izi</strong> — tipik çevrimiçi çözümün sütuna koyacak bir şeyi yok. Biz sadece bu kategorinin önümüzdeki on yılını yayına aldık.',
 
     /* §06 personas */
     's6.ey': '§ 06 · OPERATÖRLER',
@@ -238,7 +239,7 @@ const I18N_DOM = {
     'foot.c1d': 'Zero Trust',
     'foot.c2h': 'Uyumluluk',
     'foot.c3h': 'Karşılaştır',
-    'foot.c3a': 'Nipper ile',
+    'foot.c3a': 'Çevrimiçi çözümlere karşı',
     'foot.c3b': 'SaaS tarayıcılarına karşı',
     'foot.c3c': 'NCM araçlarına karşı',
     'foot.c4h': 'İletişim'
