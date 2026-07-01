@@ -179,6 +179,7 @@ const I18N_DOM = {
     's8.t1l6': 'GUI + başsız CLI',
     's8.t1l7': 'Beyaz etiketli markalama',
     's8.t1l8': 'Öncelikli destek SLA\'sı',
+    's8.priceask': 'Bize ulaşın',
     's8.req': 'Lisans İste',
     's8.most': '◆ EN ÇOK TERCİH EDİLEN',
     's8.t2h': 'Saha Birimi',
